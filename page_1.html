@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACACIA SPA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+    --primary-color: #2e7d32;
+    --secondary-color: #2d2d2d;  /* 深灰色 */
+    --accent-color: #d32f2f;
+    --text-color: #ffffff;       /* 白色文字 */
+    --light-text: #fff;
+}
+
+body {
+    background-color: #2d2d2d;   /* 深灰色背景 */
+    color: var(--text-color);    /* 白色文字 */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+        
+        .container {
+            max-width: 1600px; /* 进一步增加容器宽度 */
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #000;
+            color: var(--light-text);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .logo-img {
+            height: 40px;
+            width: auto;
+            border-radius: 5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-text);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        /* 添加到您的CSS中 */
+.hero a[href^="tel:"] {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
+}
+
+.hero p {
+    color: #ffffff !important;
+}
+
+/* 移除所有电话号码链接的默认样式 */
+a[href^="tel:"] {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('beijing.jpg') no-repeat center center/cover;
+            color: var(--light-text);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(46,125,50,0.3), rgba(211,47,47,0.3));
+            z-index: 1;
+        }
+        
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h2 {
+            font-size: 52px;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto 35px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 18px 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46,125,50,0.4);
+        }
+        
+        .cta-button:hover {
+            background-color: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46,125,50,0.6);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 90px 0;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            margin-bottom: 30px;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+        
+        /* Enhanced Image Slider */
+        .slider-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: #000;
+        }
+        
+        .slides {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            height: 650px;
+        }
+        
+        .slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 30px;
+            z-index: 10;
+        }
+        
+        .slider-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .slider-btn:hover {
+            background: rgba(0,0,0,0.9);
+            transform: scale(1.15);
+        }
+        
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            z-index: 10;
+        }
+        
+        .slider-dot {
+            width: 14px;
+            height: 14px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .slider-dot.active {
+            background: white;
+            transform: scale(1.3);
+            border-color: var(--primary-color);
+        }
+        
+        .slider-dot:hover {
+            background: rgba(255,255,255,0.9);
+        }
+        
+        .slide-counter {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Girls Section - 进一步增大图片规格 */
+        .girls {
+            padding: 100px 0; /* 增加内边距 */
+        }
+        
+        .girls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* 进一步增加最小宽度 */
+            gap: 40px; /* 增加间距 */
+        }
+        
+        .girl-card {
+            background-color: #fff;
+            border-radius: 20px; /* 增加圆角 */
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* 增强阴影 */
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .girl-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+        
+        .girl-img {
+            width: 100%;
+            height: 500px; /* 显著增加高度 - 更大更长的图片 */
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .girl-card:hover .girl-img {
+            transform: scale(1.1);
+        }
+        
+        .girl-info {
+            padding: 30px; /* 增加内边距 */
+            text-align: center;
+            background: linear-gradient(to bottom, transparent, rgba(46,125,50,0.05));
+        }
+        
+        .girl-name {
+            font-size: 28px; /* 增大字体 */
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .girl-origin {
+            color: #666;
+            margin-bottom: 12px;
+            font-size: 20px; /* 增大字体 */
+        }
+        
+        .girl-available {
+            color: var(--accent-color);
+            font-weight: 700;
+            font-size: 18px; /* 增大字体 */
+            padding: 8px 20px;
+            background: rgba(211,47,47,0.1);
+            border-radius: 25px;
+            display: inline-block;
+            border: 2px solid var(--accent-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: var(--light-text);
+            padding: 60px 0 25px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 280px;
+            margin-bottom: 35px;
+        }
+        
+        .footer-section h3 {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            margin-bottom: 15px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .footer-section a:hover {
+            color: var(--light-text);
+            transform: translateX(8px);
+        }
+        
+        .footer-section i {
+            width: 24px;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 15px;
+        }
+        
+        /* Call Button */
+        .call-button {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, var(--primary-color), #1b5e20);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 6px 25px rgba(46,125,50,0.5);
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .call-button:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 30px rgba(46,125,50,0.7);
+        }
+        
+        .call-button i {
+            font-size: 28px;
+        }
+        
+        /* Call Options */
+        .call-options {
+            position: fixed;
+            bottom: 105px;
+            right: 25px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+            padding: 18px;
+            display: none;
+            z-index: 1000;
+            width: 220px;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .call-options.active {
+            display: block;
+        }
+        
+        .call-option {
+            display: flex;
+            align-items: center;
+            padding: 14px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        
+        .call-option:last-child {
+            border-bottom: none;
+        }
+        
+        .call-option:hover {
+            background-color: #f5f5f5;
+            transform: translateX(8px);
+        }
+        
+        .call-option i {
+            margin-right: 14px;
+            color: var(--primary-color);
+            width: 22px;
+            font-size: 18px;
+        }
+        
+        /* ========== 移动端适配 ========== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(0,0,0,0.95);
+                padding: 80px 20px 20px;
+                z-index: 999;
+                overflow-y: auto;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                font-size: 20px;
+                padding: 15px 0;
+                display: block;
+            }
+            
+            .hero {
+                padding: 100px 0;
+            }
+            
+            .hero h2 {
+                font-size: 40px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .slides {
+                height: 450px;
+            }
+            
+            .slider-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .girls-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .girl-img {
+                height: 400px; /* 移动端适当调整 */
+            }
+            
+            .girl-name {
+                font-size: 24px;
+            }
+            
+            .girl-origin {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 34px;
+            }
+            
+            .slides {
+                height: 350px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .girl-img {
+                height: 350px;
+            }
+            
+            .girls-grid {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="logo.png" alt="ACACIA SPA Logo" class="logo-img">
+                <h1>ACACIA SPA</h1>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="news.html">News</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Queens Escorts</h2>
+            <p>Open: 24H</p>
+            <p>862-374-9912</p>
+            <a href="tel:862-374-9912" class="cta-button">Call Now</a>
+        </div>
+    </section>
+
+    <!-- Enhanced Image Slider -->
+    <section class="slider-section">
+        <div class="container">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="image1.jpg" alt="Special Offer 1">
+                    </div>
+                    <div class="slide">
+                        <img src="image2.jpg" alt="Special Offer 2">
+                    </div>
+                    <div class="slide">
+                        <img src="image3.jpg" alt="Special Offer 3">
+                    </div>
+                    <div class="slide">
+                        <img src="image4.jpg" alt="Special Offer 4">
+                    </div>
+                    <div class="slide">
+                        <img src="image5.jpg" alt="Special Offer 5">
+                    </div>
+                    <div class="slide">
+                        <img src="image6.jpg" alt="Special Offer 6">
+                    </div>
+                    <div class="slide">
+                        <img src="image7.jpg" alt="Special Offer 7">
+                    
+                   
+                </div>
+                
+                <div class="slide-counter">
+                    <span id="currentSlide">1</span> / <span id="totalSlides">7</span>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <div class="slider-nav">
+                    <div class="slider-dot active" data-slide="0"></div>
+                    <div class="slider-dot" data-slide="1"></div>
+                    <div class="slider-dot" data-slide="2"></div>
+                    <div class="slider-dot" data-slide="3"></div>
+                    <div class="slider-dot" data-slide="4"></div>
+                    <div class="slider-dot" data-slide="5"></div>
+                    <div class="slider-dot" data-slide="6"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">ABOUT US</h2>
+            <div class="about-content">
+                <p>We have nice ladies who will treat you like a king. Half hour "appetizer" One hour "main course".</p>
+                <p>We like to spend time with educated gentlemen who know how to treat someone as special as we are. You will be teased and pleased to be in our company... The fulfillment of your fantasy is our secret club.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Girls Section -->
+    <section class="girls">
+        <div class="container">
+            <h2 class="section-title">Our Girls</h2>
+            <div class="girls-grid">
+                <!-- Girl Cards -->
+                <div class="girl-card">
+                    <a href="Jenny.html">
+                        <img src="image1.jpg" alt="Nana" class="girl-img">
+                    </a>
+                    <div class="girl-info">
+                        <h3 class="girl-name">Jenny</h3>
+                        <p class="girl-origin">Taiwanese girl</p>
+                        <p class="girl-available">Available</p>
+                    </div>
+                </div>
+                
+                <div class="girl-card">
+                    <a href="Lucy.html">
+                        <img src="image4.jpg" alt="Tina" class="girl-img">
+                    </a>
+                    <div class="girl-info">
+                        <h3 class="girl-name">Lucy</h3>
+                        <p class="girl-origin">Taiwanese girl</p>
+                        <p class="girl-available">Available</p>
+                    </div>
+                </div>
+                
+                <div class="girl-card">
+                    <a href="Apple.html">
+                        <img src="image5.jpg" alt="Apple" class="girl-img">
+                    </a>
+                    <div class="girl-info">
+                        <h3 class="girl-name">Apple</h3>
+                        <p class="girl-origin">Japanese girl</p>
+                        <p class="girl-available">Available</p>
+                    </div>
+                </div>
+                
+                <div class="girl-card">
+                    <a href="Anna.html">
+                        <img src="image7.jpg" alt="Abby" class="girl-img">
+                    </a>
+                    <div class="girl-info">
+                        <h3 class="girl-name">Anna</h3>
+                        <p class="girl-origin">Taiwanese girl</p>
+                        <p class="girl-available">Available</p>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> 862-374-9912</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 701main ave Passaic NJ</p>
+                    <p><i class="fas fa-clock"></i> Open 7 days a week, 24H</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                    <a href="news.html"><i class="fas fa-newspaper"></i> News</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 by ACACIASPA.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Call Button -->
+    <div class="call-button" id="callButton">
+        <i class="fas fa-phone"></i>
+    </div>
+    
+    <!-- Call Options -->
+    <div class="call-options" id="callOptions">
+        <div class="call-option" onclick="window.location.href='tel:862-374-9912'">
+            <i class="fas fa-phone"></i>
+            <span>Call Now</span>
+        </div>
+        <div class="call-option" onclick="window.location.href='sms:862-374-9912'">
+            <i class="fas fa-sms"></i>
+            <span>Send SMS</span>
+        </div>
+        <div class="call-option" id="copyNumber">
+            <i class="fas fa-copy"></i>
+            <span>Copy Number</span>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced Slider Functionality
+        class ImageSlider {
+            constructor() {
+                this.slides = document.querySelector('.slides');
+                this.slidesList = document.querySelectorAll('.slide');
+                this.dots = document.querySelectorAll('.slider-dot');
+                this.prevBtn = document.querySelector('.prev-btn');
+                this.nextBtn = document.querySelector('.next-btn');
+                this.currentSlide = 0;
+                this.totalSlides = this.slidesList.length;
+                this.autoPlayInterval = null;
+                
+                this.init();
+            }
+            
+            init() {
+                this.updateCounter();
+                
+                // Event listeners
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                
+                this.dots.forEach(dot => {
+                    dot.addEventListener('click', (e) => {
+                        const slideIndex = parseInt(e.target.getAttribute('data-slide'));
+                        this.goToSlide(slideIndex);
+                    });
+                });
+                
+                // Touch support
+                this.addTouchSupport();
+                
+                // Auto play
+                this.startAutoPlay();
+                
+                // Pause on hover
+                this.slides.parentElement.addEventListener('mouseenter', () => this.stopAutoPlay());
+                this.slides.parentElement.addEventListener('mouseleave', () => this.startAutoPlay());
+            }
+            
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.slides.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+                this.updateDots();
+                this.updateCounter();
+            }
+            
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(this.currentSlide);
+            }
+            
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(this.currentSlide);
+            }
+            
+            updateDots() {
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+            
+            updateCounter() {
+                document.getElementById('currentSlide').textContent = this.currentSlide + 1;
+                document.getElementById('totalSlides').textContent = this.totalSlides;
+            }
+            
+            startAutoPlay() {
+                this.stopAutoPlay();
+                this.autoPlayInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 4000);
+            }
+            
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                }
+            }
+            
+            addTouchSupport() {
+                let startX = 0;
+                
+                this.slides.parentElement.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    this.stopAutoPlay();
+                });
+                
+                this.slides.parentElement.addEventListener('touchend', (e) => {
+                    const endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.prevSlide();
+                        }
+                    }
+                    this.startAutoPlay();
+                });
+            }
+        }
+
+        // Mobile Menu
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+            
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close menu when clicking on links
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+                document.getElementById('menuToggle').querySelector('i').classList.remove('fa-times');
+                document.getElementById('menuToggle').querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Call Button Functionality
+        document.getElementById('callButton').addEventListener('click', function() {
+            document.getElementById('callOptions').classList.toggle('active');
+        });
+
+        document.getElementById('copyNumber').addEventListener('click', function() {
+            navigator.clipboard.writeText('9293738006').then(() => {
+                alert('Phone number copied to clipboard!');
+                document.getElementById('callOptions').classList.remove('active');
+            });
+        });
+
+        // Close call options when clicking outside
+        document.addEventListener('click', function(event) {
+            const callButton = document.getElementById('callButton');
+            const callOptions = document.getElementById('callOptions');
+            
+            if (!callButton.contains(event.target) && !callOptions.contains(event.target)) {
+                callOptions.classList.remove('active');
+            }
+        });
+
+        // Initialize slider when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new ImageSlider();
+        });
+    </script>
+</body>
+</html>
